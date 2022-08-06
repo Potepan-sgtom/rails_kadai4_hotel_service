@@ -1,0 +1,27 @@
+<header>
+  <div class="header-inner contents-tidy">
+    <div class="header-left-block contents-tidy">
+      
+      <%= form_with url: hotels_path, method: :get, local: true ,class: 'search-box' do |f| %>
+        <%= f.text_field :location, class: 'header-form', value: @location, placeholder: 'エリア検索' %>
+        <i class="fas fa-map-marker-alt header-form-icon area"></i>
+
+        <%= f.text_field :name, class: 'header-form', value: @keyword, placeholder: 'キーワード検索' %>
+        <i class="fas fa-search header-form-icon keyword"></i>
+        <%= f.submit '', class: 'hide' %>
+      <% end %>
+      
+    </div>
+      <% if logged_in? %>
+        <div class="header-right-block logged_in">
+          <%= link_to 'マイページ', current_user, class: 'login-button signup logged_in' %>
+          <%= link_to 'ログアウト', login_path, method: :delete, class: 'login-button login logged_in' %>
+        </div>
+      <% else %>
+        <div class="header-right-block">
+          <%= link_to '登録', signup_path, class: 'login-button signup' %>
+          <%= link_to 'ログイン', login_path, class: 'login-button login' %>
+        </div>
+      <% end %>
+  </div>
+</header>

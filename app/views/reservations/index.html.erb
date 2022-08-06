@@ -1,0 +1,36 @@
+<section class="section-top">
+    <h2>予約済みルーム一覧</h2>
+    <% if @reservations.present? %>
+      
+    <table class="reservations_list">
+      <tr>
+        <th>ルーム写真</th>
+        <th>ルーム名</th>
+        <th>ロケーション</th>
+        <th>合計料金</th>
+        <th>チェックイン/チェックアウト</th>
+        <th>予約確定日時</th>
+      </tr>
+      
+      <% @reservations.each do |reservation| %>
+        <tr>
+            <td class="hotel-thumbnail">
+              <% if reservation.hotel.image? %>
+                <%= image_tag reservation.hotel.image.thumb.url %>
+              <% else %>
+                <%= image_tag('hotel_sample.jpeg') %>
+              <% end %>
+            </td>
+            <td><%= link_to reservation.hotel.name, reservation %></td>
+            <td><%= reservation.hotel.location %></td>
+            <td>¥ <%= reservation.total_fee %></td>
+            <td><%= reservation.start_date %> / <%= reservation.end_date %></td>
+            <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
+         </tr>
+      <% end %>  
+    </table> 
+
+  <% else %>
+  <p>予約済みのルームはありません</p>
+  <% end%>
+  </section>

@@ -1,0 +1,15 @@
+<section class="section-top">
+  <div class="reservation-block">
+    <%= render 'shared/hotels_contents', hotel: @reservation.hotel %>
+    <div class="reservation-detail">
+      <h3 class="title">予約を変更する</h3>
+      <%= render 'shared/reservation_form',
+        reservation: @reservation, hotel_id: @reservation.hotel_id, submit_text: "変更を完了する" %>
+    </div>
+  </div>
+  <div class="another-menu">
+    <p><%= link_to 'このルームのオーナー情報を表示', @reservation.hotel.user %></p>
+    <p><%= link_to '予約済みルーム一覧', :reservations %></p>
+  </div>
+</section>
+<%= javascript_pack_tag 'reservation/calc_total_fee' %>

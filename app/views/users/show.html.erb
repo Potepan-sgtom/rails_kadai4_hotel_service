@@ -1,0 +1,40 @@
+<section class="section-top user-page">
+  <h2 class="user-page-title">ユーザー情報</h2>
+  <div class="user-profile-block">
+    <div class="user-thumbnail">
+      <% if @user.image? %>
+        <%= image_tag @user.image.thumb.url %>
+      <% else %>
+        <%= image_tag 'no_image.jpeg' %>
+      <% end %>
+    </div>
+    <div class="user-profile">
+      <table>
+        <tr>
+          <th>名前</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>メール</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+      <% if @user == current_user %>
+        <ul class="user-menu">
+          <li><%= link_to '新しいルームを登録する', new_hotel_path %></li>
+          <li><%= link_to '予約済みルームを確認する', reservations_path %></li>
+          <li><%= link_to 'ユーザー情報を編集する', edit_user_path(@user) %></li>
+        </ul>  
+      <% end %>
+    </div>
+  </div> 
+  
+</section>
+
+<section class="section-owner">
+  <%= render 'owner_info', user: @user %>
+</section>

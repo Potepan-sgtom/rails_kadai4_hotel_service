@@ -1,0 +1,102 @@
+/*users controller*/
+.users{
+  .user-page-title{
+    padding-bottom: 20px;
+  }
+  .user-profile-block{
+    display: flex; 
+  }
+  .user-thumbnail{
+    width: 400px;
+    height: 300px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .user-profile{
+    margin-left: 30px;
+    font-size: 18px;
+    table{
+      text-align: left;
+      th{
+        padding-bottom: 20px;
+        min-width: 100px;
+      }
+      td{
+        margin-left: 15px;
+        padding-bottom: 20px;
+        max-width: 500px;
+      }
+    }
+  }
+  .user-menu{
+    padding: 0;
+    margin-top: 30px;
+    font-size: 17px;
+    a{
+      color: #909090;
+    }
+  }
+  .section-owner{
+    margin-top: 100px;
+  }
+}
+
+/* login, users#new,edit */
+.user-form-box{
+  .user-form{
+    padding: 20px 0;
+    border-spacing: 20px 10px;
+    font-size: 18px;
+    text-align: left;
+  }
+  .new-user-link{
+    display: block;
+    padding-top: 10px;
+    font-size:16px;
+    a{
+      color: #909090;
+    }
+  }
+}
+
+/* _guests_info */
+.guests_list{
+  margin-left: 20px;
+  border-spacing: 0 10px;
+  tr:nth-child(even){
+      background-color: #FFFFDF;
+  }
+  td{
+    padding: 0 15px;
+    border-bottom: 1px solid #eaedef;
+    max-width: 300px;
+    overflow-wrap:  break-word;
+  }
+  th{
+    font-size: 15px;
+    max-width: 300px;
+    padding: 8px 15px;
+    border-top: 1px lightgray solid;
+    border-bottom: 1px lightgray solid;
+  }
+  .hotel-thumbnail{
+    width: 300px;
+    height: 200px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+
+
+
+
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/

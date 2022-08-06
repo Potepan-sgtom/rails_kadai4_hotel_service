@@ -1,0 +1,26 @@
+<%= form_with(model: hotel, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <table class="reservation-info">
+    <tr>
+      <th><%= f.label :name, 'ルーム名' %></th>
+      <td><%= f.text_field :name, placeholder:'ルーム名を入力' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :image, 'ルーム写真' %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :introduction, 'ルーム紹介' %></th>
+      <td><%= f.text_area :introduction, placeholder:'紹介文を入力' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :location, 'ロケーション' %></th>
+      <td><%= f.text_field :location, placeholder: 'ロケーションを入力'%></td>
+    </tr>
+    <tr>
+      <th><%= f.label :price, '料金(1泊あたり)' %></th>
+      <td><%= f.text_field :price, placeholder: '料金を入力'%></td>
+    </tr>
+  </table>
+  <%= f.submit submit_text, class: 'submit-button' %>
+<% end %>

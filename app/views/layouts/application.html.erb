@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PotepanRailsTask2</title>
+    <title>ポテパン課題４　RoR宿泊予約サービス</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+    <% if flash.any? %>
+      <% flash.each do |type, message| %>
+        <p class="flash <%= type %>"><%= message %></p>
+      <% end %>
+    <% end %>
+    <main class="content-width <%= controller.controller_name %>">
     <%= yield %>
+    </main>
   </body>
 </html>
