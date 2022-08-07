@@ -1,7 +1,7 @@
-<% if @task.errors.any? %>
+<% if @task.error.any? %>
   <div>
     <ul style="color: red">
-      <% @task.errors.full_messages.each do |message| %>
+      <% @task.error.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
     </ul>
