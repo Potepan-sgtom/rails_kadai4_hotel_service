@@ -1,16 +1,17 @@
 <section class = toppage-home>
  <div class = toppage-header>
    <h2 class = "top-title">素敵な旅になりますように</h2>
-   <form action = "" method = "post"> 
     <p>検索欄</p>
-    <input type ="search" name ="search" placeholder ="キーワードを入力">
-    <input type ="submit" name ="submit" value ="検索">
-   </form>
-
-   <%= link_to('新しい宿泊先を登録する', new_hotel_path) if logged_in? %>
+    <%= form_with url: hotels_path, method: :get, local: true do |f| %>
+      <%= f.label :area, 'エリア' %>
+      <%= f.text_field :area, class: 'top-search-form', placeholder: 'ex. 静岡' %>
+      <%= f.submit '検索', class: 'top-button' %>
+    　<%= link_to('新しい部屋を登録する', new_hotel_path) if logged_in? %>
+    <% end %>
   
   
-  </div>
-</section>  
+ </div>
+</section>
 　
 <p>あおむけ観光 , 2022</p>
+

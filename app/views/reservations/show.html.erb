@@ -6,7 +6,7 @@
       <table class="reservation-info">
         <tr>
           <th>人数</th>
-          <td><%= @reservation.guests %> 人</td>
+          <td><%= @reservation.member %> 人</td>
         </tr>
         <tr>
           <th>合計金額</th>
@@ -14,11 +14,11 @@
         </tr>
         <tr>
           <th>チェックイン</th>
-          <td><%= @reservation.start_date %></td>
+          <td><%= @reservation.checkin %></td>
         </tr>
         <tr>
           <th>チェックアウト</th>
-          <td><%= @reservation.end_date %></td>
+          <td><%= @reservation.checkout %></td>
         </tr>
       </table>
     </div>
@@ -27,6 +27,6 @@
   <ul class="another-menu">
     <li><%= link_to '予約情報を変更する', edit_reservation_path(@reservation) %></li>
     <li><%= link_to '予約をキャンセルする', @reservation, method: :delete, data: { confirm: "本当にキャンセルしますか？" }  %></li>
-    <li><%= link_to 'このルームのオーナー情報を表示', @reservation.hotel.user %></li>
+    <li><%= link_to 'この部屋のオーナー情報を表示', @reservation.hotel.user %></li>
   </ul>  
 </section>

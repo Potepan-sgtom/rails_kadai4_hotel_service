@@ -14,11 +14,11 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.total_fee = calc_total_fee(@reservation)
     if @reservation.save
-      flash[:success] = "ルームの予約が完了しました"
+      flash[:success] = "部屋の予約が完了しました"
       redirect_to @reservation
     else
       @hotel = Hotel.find(@reservation.hotel_id)
-      render 'rooms/show'
+      render 'hotels/show'
     end
   end
    
@@ -49,16 +49,16 @@ class ReservationsController < ApplicationController
     private
 
     def reservation_params
-      params.require(:reservation).permit(:start_date, :end_date, :guests, :total_fee, :room_id)
+      params.require(:reservation).permit(:checkin, :checkout, :member, :total_fee, :hotel_id)
     end
     
     #宿泊費用を計算
     def calc_total_fee(reservation)
-      if reservation.start_date.present? && reservation.end_date.present?
+      if reservation.checkin.present? && reservation.checkout.present?
         price = Hotel.find(reservation.hotel_id).price
-        term = (reservation.end_date - reservation.start_date).to_i
-        guests = reservation.guests.to_i
-        price * term * guests
+        term = (reservation.checkout - reservation.checkin).to_i
+        member = reservation.member.to_i
+        price * term * member
       end
     end
   

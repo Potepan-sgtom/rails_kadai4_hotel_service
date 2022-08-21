@@ -8,14 +8,14 @@
   }
   .hotel-box{
     display: inline-block;
-    width: 30%;
-    margin:10px;
+    width: 90%;
+    margin: 50px;
     background-color:white;
 
     border: 2px gray solid;
     .hotel-thunmnail{
       overflow: hidden;
-      height: 250px;
+      height: 100px;
       img{
         width: 100%;
         height: 100%;
@@ -23,14 +23,14 @@
       }
     }
     .hotel-profile{
-      padding:0 10px 5px;
+      padding: 0 10px 5px;
       .hotel-name{
         height: 30px;
         font-size: 18px;
         font-weight: bold;
         color: #909090;
       }
-      .hotel-location{
+      .hotel-area{
         height: 30px;
         font-size: 16px;
         font-weight: bold;
@@ -51,11 +51,11 @@
     font-size: 25px;
   }
   .hotel-thumbnail{
-    width: 550px;
-    height: 380px;
+    width: 500px;
+    height: 400px;
     img{
-      width: 100%;
-      height: 100%;
+      width: 250px;
+      height: 250px;
       object-fit: cover;
     }
   }

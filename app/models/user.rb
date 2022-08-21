@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :rooms
+  has_many :hotels
   has_many :reservations
   before_save :downcase_email
   has_secure_password

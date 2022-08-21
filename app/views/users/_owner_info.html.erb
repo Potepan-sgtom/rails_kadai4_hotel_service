@@ -1,16 +1,16 @@
 <% if user.hotels.present? %>
-  <h3>このオーナーのルーム情報</h3>
+  <h3>このオーナーの所有情報</h3>
   <table class="reservations_list">
     <tr>
       <th>部屋写真</th>
       <th>部屋名</th>
       <th>部屋紹介</th>
-      <th>ロケーション</th>
+      <th>場所</th>
       <th>料金(1泊)</th>
       <th>部屋登録日</th>
     </tr>
       
-    <% user.hotels.each do |hote| %>
+    <% user.hotels.each do |hotel| %>
       <tr>
         <td class="hotel-thumbnail">
           <% if hotel.image? %>
@@ -21,7 +21,7 @@
         </td>
         <td><%= link_to hotel.name, hotel %></td>
         <td><%= hotel.introduction %></td>
-        <td><%= hotel.location %></td>
+        <td><%= hotel.area %></td>
         <td>¥ <%= hotel.price %></td>
         <td><%= hotel.created_at.to_s(:datetime_jp) %></td>
       </tr>

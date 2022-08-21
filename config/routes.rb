@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   root to: 'toppage#home'
-  get '/signup', to: 'users#new'
-  get '/count', to: 'hotels#index' #countメソッドはhotelsのindexviewファイルに繋げたい
+  get    '/signup', to: 'users#new'
+  post   '/',       to: 'hotels#index'
 
-  get '/login',  to: 'sessions#new'
-  post '/login',  to: 'sessions#create'
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
   delete '/login',  to: 'sessions#destroy'
   
   resources :users

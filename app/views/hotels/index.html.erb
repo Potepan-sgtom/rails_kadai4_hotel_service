@@ -1,5 +1,5 @@
 <section class="section-top hotel-list">
-  <h2>部屋一覧   (検索結果：<%= @hotel.count %>件)</h2>
+  <h2>部屋一覧   (検索結果：<%= @hotels.count %>件)</h2>
   <div class="hotel-block">
    <% @hotels.each do |hotel| %>
       <%= link_to hotel, class: 'hotel-box' do %>
@@ -13,7 +13,7 @@
         </div>
         <div class="hotel-profile">
           <p class="hotel-name"><%= hotel.name %></p>
-          <p class="hotel-location"><%= hotel.location %></p>
+          <p class="hotel-area"><%= hotel.area %></p>
           <p class="hotel-price">¥ <%= hotel.price %></p>
         </div>
       </div>  

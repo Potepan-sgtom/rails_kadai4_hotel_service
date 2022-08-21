@@ -25,8 +25,8 @@
       </table>
       <% if @user == current_user %>
         <ul class="user-menu">
-          <li><%= link_to '新しいルームを登録する', new_hotel_path %></li>
-          <li><%= link_to '予約済みルームを確認する', reservations_path %></li>
+          <li><%= link_to '新しい部屋を登録する', new_hotel_path %></li>
+          <li><%= link_to '予約済み部屋を確認する', reservations_path %></li>
           <li><%= link_to 'ユーザー情報を編集する', edit_user_path(@user) %></li>
         </ul>  
       <% end %>

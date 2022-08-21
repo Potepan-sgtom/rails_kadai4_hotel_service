@@ -1,4 +1,4 @@
-<% if hotel.reservation.present? %>
+<% if hotel.reservations.present? %>
   <h3>この部屋の予約情報です！</h3>
   <table class="guests_list">
     <tr>
@@ -13,10 +13,10 @@
     <% hotel.reservations.each do |reservation| %>
       <tr>
         <td><%= link_to reservation.user.name, reservation.user %></td>
-        <td><%= reservation.guests %></td>
+        <td><%= reservation.member %></td>
         <td>¥ <%= reservation.total_fee %></td>
-        <td><%= reservation.start_date %></td>
-        <td><%= reservation.end_date %></td>
+        <td><%= reservation.checkin %></td>
+        <td><%= reservation.checkout %></td>
         <td><%= reservation.created_at.to_s(:datetime_jp) %></td>
       </tr>
     <% end %>

@@ -1,11 +1,9 @@
 class HotelsController < ApplicationController
 
-  #routesのGET
   def index
-    if params[:name].present? || params[:location].present? || params[:area].present?
-      @hotel = Hotel.where('name like?', "%#{params[:name]}%").where('location like?', "%#{params[:location]}%").where('area like?', "%#{params[:area]}%").order(updated_at: "ASC")
+    if params[:name].present? || params[:area].present?
+      @hotels = Hotel.where('name like?', "%#{params[:name]}%").where('area like?', "%#{params[:area]}%").order(updated_at: "ASC")
       @keyword = params[:name]
-      @location = params[:location]
       @area = params[:area]
     else
       @hotels = Hotel.all.order(updated_at: "ASC")
@@ -58,5 +56,5 @@ class HotelsController < ApplicationController
       params.require(:hotel).permit(:name, :introduction, :area, :price, :image)
     end
     
-    
+  protect_from_forgery  
 end

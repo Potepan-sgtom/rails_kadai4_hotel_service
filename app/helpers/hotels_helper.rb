@@ -1,6 +1,6 @@
 module HotelsHelper
     
-def owner?(room)
-    logged_in? && current_user.rooms.include?(room)
+def owner?(hotel)
+    logged_in? && current_user.hotels.include?(hotel)
 end
 end
