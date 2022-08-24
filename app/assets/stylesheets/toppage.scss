@@ -81,6 +81,14 @@ header{
       align-items:center;
     }
   }
+  /*二回目提出時変更箇所↓*/
+  .AOMUKE-logo{
+    position: relative;
+    height: 100px;
+    margin-right: 30px;
+    padding-top: 20px;
+  }
+  /*二回目提出時変更箇所↑*/
   .search-box{
     position:relative;
     margin:20px 5px;
@@ -159,6 +167,11 @@ header{
   }
 }
 
+/*footer*/
+.footer-logo {
+  font-size: 20px;
+  position: relative;
+}
 
 
 /*home*/

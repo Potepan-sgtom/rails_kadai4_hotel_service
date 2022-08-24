@@ -5,7 +5,7 @@
       <% if @user.image? %>
         <%= image_tag @user.image.thumb.url %>
       <% else %>
-        <%= image_tag 'no_image.jpeg' %>
+        <%= image_tag 'hotel_sample.jpeg' %>
       <% end %>
     </div>
     <div class="user-profile">
@@ -23,6 +23,7 @@
           <td><%= @user.introduction %></td>
         </tr>
       </table>
+      <h2><%= link_to 'お部屋予約しますか？(ここをクリック)', new_hotel_path %></h2>
       <% if @user == current_user %>
         <ul class="user-menu">
           <li><%= link_to '新しい部屋を登録する', new_hotel_path %></li>

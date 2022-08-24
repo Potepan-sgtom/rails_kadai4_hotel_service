@@ -1,7 +1,11 @@
 <header>
   <div class="header-inner contents-tidy">
     <div class="header-left-block contents-tidy">
-      
+      <!--二回目提出時変更箇所↓-->
+      <div class="AOMUKE-logo">
+        <%= link_to 'あおむけ観光', root_url %>
+      </div>
+      <!--二回目提出時変更箇所↑-->
       <%= form_with url: hotels_path, method: :get, local: true ,class: 'search-box' do |f| %>
         <%= f.text_field :area, class: 'header-form', value: @area, placeholder: 'エリア検索' %>
         <i class="fas fa-map-marker-alt header-form-icon area"></i>

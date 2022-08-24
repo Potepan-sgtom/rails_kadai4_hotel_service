@@ -1,7 +1,7 @@
 <section class = toppage-home>
  <div class = toppage-header>
    <h2 class = "top-title">素敵な旅になりますように</h2>
-    <p>検索欄</p>
+    <p>気になる場所を探す</p>
     <%= form_with url: hotels_path, method: :get, local: true do |f| %>
       <%= f.label :area, 'エリア' %>
       <%= f.text_field :area, class: 'top-search-form', placeholder: 'ex. 静岡' %>
@@ -13,5 +13,5 @@
  </div>
 </section>
 　
-<p>あおむけ観光 , 2022</p>
+<p class = 'footer-logo'><%= link_to 'あおむけ観光, 2022', root_url %></p>
 
