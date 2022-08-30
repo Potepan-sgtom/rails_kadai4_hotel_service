@@ -14,10 +14,11 @@
       <th><%= f.label :member, '人数', class: 'member' %></th>
       <td><%= f.number_field :member, id: 'member', placeholder: '予約人数を入力'%></td>
     </tr>
-    <tr>
+    <!--三回目提出時変更箇所-->
+    <!--<tr>
       <th>合計金額</th>
-      <td id ="total_fee">¥ <%= reservation.total_fee %></td>
-    </tr>
+      <td id ="total_fee">¥ <!%= reservation.total_fee %></td>
+    </tr>-->
   </table>
   <%= hidden_field_tag 'reservation[hotel_id]', hotel_id %>
   

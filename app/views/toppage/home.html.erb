@@ -6,7 +6,8 @@
       <%= f.label :area, 'エリア' %>
       <%= f.text_field :area, class: 'top-search-form', placeholder: 'ex. 静岡' %>
       <%= f.submit '検索', class: 'top-button' %>
-    　<%= link_to('新しい部屋を登録する', new_hotel_path) if logged_in? %>
+      <!--三回目提出時変更箇所(new_hotel_pathからhotels_pathへ変更)↓-->
+    　<%= link_to('部屋一覧から行き先を探す', hotels_path) if logged_in? %>
     <% end %>
   
   

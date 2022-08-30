@@ -11,8 +11,10 @@ class ReservationsController < ApplicationController
   end
   
   def create
+    #puts 1234
     @reservation = current_user.reservations.build(reservation_params)
     @reservation.total_fee = calc_total_fee(@reservation)
+    #puts @reservation.total_fee
     if @reservation.save
       flash[:success] = "部屋の予約が完了しました"
       redirect_to @reservation
@@ -53,13 +55,28 @@ class ReservationsController < ApplicationController
     end
     
     #宿泊費用を計算
+    
     def calc_total_fee(reservation)
       if reservation.checkin.present? && reservation.checkout.present?
         price = Hotel.find(reservation.hotel_id).price
-        term = (reservation.checkout - reservation.checkin).to_i
+        #三回目提出時変更箇所↓(1日の秒数が合計金額に算出されたため、.to_iから÷86400でtermを日数表示に置き換え)
+        term = (reservation.checkout - reservation.checkin)/86400
+        #三回目提出時変更箇所↑
+        
+        #下のputsはエラー確認用
+        #puts reservation.checkin
+        #puts reservation.checkout
+        #puts (reservation.checkout - reservation.checkin)
         member = reservation.member.to_i
+        #puts price
+        #puts term
+        #puts member
+        #puts 9900
         price * term * member
       end
     end
+    
+    
+    
   
 end

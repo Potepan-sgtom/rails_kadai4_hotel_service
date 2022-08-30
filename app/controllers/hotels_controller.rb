@@ -19,13 +19,13 @@ class HotelsController < ApplicationController
       render 'new'
     end
   end
-  
+  #三回目提出時変更箇所↓(全てfind_by(params[:id])となりActiveRecordへの接続ができていなかったのでparamsの前にid:を挿入)
   def edit
-    @hotel = Hotel.find_by(params[:id])  
+    @hotel = Hotel.find_by(id: params[:id])  
   end 
   
   def update
-    @hotel = Hotel.find_by(params[:id])
+    @hotel = Hotel.find_by(id: params[:id])
     if @hotel.update(hotel_params)
       flash[:success] = "ユーザー情報を更新しました"
       redirect_to @hotel
@@ -35,8 +35,9 @@ class HotelsController < ApplicationController
   end
   
   def destroy
-    @hotel = Hotel.find_by(params[:id])
-    hotel.delete
+    @hotel = Hotel.find_by(id: params[:id])
+    @hotel.delete　#←なぜかグローバル変数になっていたためインスタンス変数に変更
+    #三回目提出時変更箇所↑
     flash[:info] = "宿泊先情報を削除しました"
     redirect_to current_user
   end

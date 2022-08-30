@@ -27,9 +27,9 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
+　#三回目提出時変更箇所(DBへ接続できておらずユーザー情報の表示が変わらなかったためfind_by(の後に:idを挿入し改善)↓
   def show
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   private
