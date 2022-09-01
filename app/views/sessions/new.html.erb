@@ -1,0 +1,21 @@
+<section class="section-top login picture">
+  <div class="user-form-box">
+    <h2>ユーザーログイン</h2>
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+      <table class="user-form">
+        <tr>
+          <th><%= f.label :email, 'メールアドレス' %></th>
+          <td><%= f.text_field :email, placeholder: 'メールアドレスを入力'%></td>
+        </tr>
+        <tr>
+          <th><%= f.label :password, 'パスワード' %></th>
+          <td><%= f.password_field :password, placeholder: 'パスワードを入力'%></td>
+        </tr>
+      </table>
+      <%= f.submit 'ログイン', class: 'submit-button' %>
+      <span class="new-user-link">
+        <%= link_to '新規ユーザー登録', new_user_path, class: 'another' %>
+      </span>
+    <% end %>
+  </div>
+</section>

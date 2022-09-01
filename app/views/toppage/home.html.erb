@@ -1,0 +1,18 @@
+<section class = toppage-home>
+ <div class = toppage-header>
+   <h2 class = "top-title">素敵な旅になりますように</h2>
+    <p>気になる場所を探す</p>
+    <%= form_with url: hotels_path, method: :get, local: true do |f| %>
+      <%= f.label :area, 'エリア' %>
+      <%= f.text_field :area, class: 'top-search-form', placeholder: 'ex. 静岡' %>
+      <%= f.submit '検索', class: 'top-button' %>
+      <!--三回目提出時変更箇所(new_hotel_pathからhotels_pathへ変更)↓-->
+    　<%= link_to('部屋一覧から行き先を探す', hotels_path) if logged_in? %>
+    <% end %>
+  
+  
+ </div>
+</section>
+　
+<p class = 'footer-logo'><%= link_to 'あおむけ観光, 2022', root_url %></p>
+

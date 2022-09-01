@@ -1,0 +1,33 @@
+<section class ="hotels-toppage">
+  <div class ="hotels-detail">
+    <%= render 'shared/hotels_contents', hotel: @hotel %>
+    
+    <% if owner?(@hotel) %>
+      <div class="guests_info">
+        <%= render 'guests_list',hotel: @hotel %>
+      </div>
+    <% else %>
+      <div class="reservation-form">
+        <h3 class="title">この部屋を予約する</h3>
+        <%= render 'shared/reservation_form',
+          reservation: @reservation, hotel_id: @hotel.id, submit_text: "変更完了" %>
+      </div>
+    <% end %>
+  </div>    
+    
+  <div class="another-menu">
+    <% if !owner?(@hotel) %>
+      <p><%= link_to('この施設のオーナー情報を表示', @hotel.user) %></p>
+      <p><%= link_to '予約済み部屋一覧', :reservations %></p>
+    <% else %>
+      <ul>
+        <li><%= link_to 'この施設情報を編集する', edit_hotel_path(@hotel) %></li>
+        <li><%= link_to 'この施設を削除する', @hotel, method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+      </ul>
+    <% end %>
+  </div>
+</section>
+
+ 
+    
+    

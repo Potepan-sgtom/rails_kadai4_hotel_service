@@ -1,0 +1,16 @@
+<div class ="_hotel_contents">
+  <h1 class ="hotel-name"><%= hotel.name if !hotel.id.nil? %></h1>
+  <p class ="hotel-text"><%= hotel.introduction if !hotel.id.nil? %></p>
+  <div class ="hotel-thumbnail">
+    <% if hotel.image? %>    
+      <%= image_tag hotel.image.thumb.url %>
+    <% else %>
+      <%= image_tag 'hotel_sample.jpeg' %>
+    <% end %>  
+  </div>  
+  <% if !hotel.id.nil? %>
+    <div class ="hotel-overview">
+      <span class ="hotel-price">¥<span id ="price"><%= hotel.price %></span> /泊</span>
+    </div>
+  <% end %>    
+</div>

@@ -1,0 +1,31 @@
+<%= form_with(model: reservation, local: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+    
+  <table class="reservation-info">
+    <tr>
+      <th><%= f.label :checkin, 'チェックイン日付' %></th>
+      <td><%= f.date_field :checkin, id: 'checkin' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :checkout, 'チェックアウト日付' %></th>
+      <td><%= f.date_field :checkout, id: 'checkout' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :member, '人数', class: 'member' %></th>
+      <td><%= f.number_field :member, id: 'member', placeholder: '予約人数を入力'%></td>
+    </tr>
+    <!--三回目提出時変更箇所-->
+    <!--<tr>
+      <th>合計金額</th>
+      <td id ="total_fee">¥ <!%= reservation.total_fee %></td>
+    </tr>-->
+  </table>
+  <%= hidden_field_tag 'reservation[hotel_id]', hotel_id %>
+  
+  <% if logged_in? %>
+    <%= f.submit submit_text, class: 'submit-button' %>
+  <% else %>
+    <%= link_to 'ログイン', login_path, class: 'login-btn' %>
+  <% end %>
+  
+<% end %>

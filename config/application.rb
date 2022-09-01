@@ -15,5 +15,7 @@ module PotepanRailsTask2
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    # 二回目提出時変更箇所↓
+    config.time_zone = 'Tokyo'
   end
 end
