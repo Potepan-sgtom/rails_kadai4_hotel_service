@@ -29,14 +29,12 @@ class UsersController < ApplicationController
   end
   
   #三回目提出時変更箇所(DBへ接続できておらずユーザー情報の表示が変わらなかったためfind_by(の後に:idを挿入し改善)↓
+  #四回目提出時変更箇所(defと上記コメントアウトの間に全角スペースがあったためRoutingErrorが発生した)
   def show
-　  @user = User.find_by(id: params[:id])
-　end
-
+    @user = User.find_by(id: params[:id])
+  end
   private
-
     def user_params
       params.require(:user).permit(:name, :email, :introduction, :password, :password_confirmation, :image)
     end
-  end
 end
